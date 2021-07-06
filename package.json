@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "test:chrome": "cypress run --browser chrome",
+        "test:chrome": "cypress run --record --key 02788f8e-e3a9-4afd-ae90-353bbb5b8ed8 --browser chrome",
         "combine:report": "mochawesome-merge ./mochawesome-report/*.json -o index.json",
         "generate:report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
     },
