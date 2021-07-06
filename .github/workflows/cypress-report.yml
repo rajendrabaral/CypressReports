@@ -6,7 +6,7 @@ name: Generate Cypress Report
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 jobs:
   cypress-test:
@@ -27,8 +27,9 @@ jobs:
 
       - name: Copy test execution videos and screenshots
         run: |
-          cp -r cypress/videos videos
-          cp -r cypress/screenshots screenshots
+          mkdir public
+          cp -r cypress/videos public/videos
+          cp -r cypress/screenshots public/screenshots
 
       - name: Merge test reports
         run: npm run combine:report
@@ -40,5 +41,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /
+          publish_dir: ./public
           
